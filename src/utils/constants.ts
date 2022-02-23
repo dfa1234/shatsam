@@ -1,6 +1,9 @@
 import { Days, Steps } from "./enums";
 
-export const PERIODS = [...Object(Array(10)).keys()];
+export const PERIODS: number[] = [];
+for (let i = 0; i < 10; i++) {
+  PERIODS.push(i);
+}
 
 // a day has 10 periods, each period is linked to one of the 7 steps
 export const NB_PERIOD_DAY = PERIODS.length;
@@ -28,31 +31,13 @@ export const WEEK = [
 ];
 
 export const CYCLE_KEY = [
-  "star-0",
-  "star-1",
-  "star-2",
-  "star-3",
-  "star-4",
-  "star-5",
-  "star-6",
+  "star0",
+  "star1",
+  "star2",
+  "star3",
+  "star4",
+  "star5",
+  "star6",
 ];
 
-export const DAY_KEY = [
-  "day-0",
-  "day-1",
-  "day-2",
-  "day-3",
-  "day-4",
-  "day-5",
-  "day-6",
-];
-
-export const MAP_CYCLE_ICONS = new Map([
-  [Steps.S, "saturn"],
-  [Steps.T, "jupiter"],
-  [Steps.M, "mars"],
-  [Steps.H, "mercury"],
-  [Steps.N, "venus"],
-  [Steps.K, "neptune"],
-  [Steps.L, "moon"],
-]);
+export const DAY_KEY = ["day0", "day1", "day2", "day3", "day4", "day5", "day6"];

@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Calque_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
 <g>
 	<path opacity="0.8" fill="#7F7041" d="M381.699,268.553c-0.04,0.449-0.09,0.909-0.15,1.359c-0.569,5.13-1.47,10.21-2.68,15.21   c5.75,11.37,7.44,21.94,4.17,30.73c-3.97,10.63-14.65,17.25-29.86,19.94c-0.569,0.1-1.149,0.199-1.739,0.29   c-28.12,4.34-70.801-4.171-115.12-25.091c-44.41-20.949-79.76-49.33-96.68-74.979c-1.82-2.76-3.43-5.49-4.81-8.18   c-5.95-11.55-7.73-22.29-4.42-31.21c3.82-10.25,13.9-16.78,28.26-19.65c0.14-0.17,0.27-0.35,0.41-0.52   c6.47-8.15,13.83-15.34,21.89-21.49c-5.1,2.76-9.98,5.92-14.61,9.47h-0.39c-1.71,0.01-3.39,0.05-5.03,0.13   c-0.71,0.03-1.42,0.06-2.11,0.1c-23.35,1.44-39.93,9.38-45.36,23.96c-2.64,7.08-2.44,15.18,0.23,23.89c0.18,0.6,0.38,1.2,0.59,1.8   c0.13,0.38,0.27,0.76,0.4,1.14c0.14,0.38,0.29,0.77,0.43,1.15c2.08,5.39,5.04,10.98,8.81,16.69c2.5,3.79,5.35,7.64,8.54,11.51   c21.27,25.84,57.31,52.87,101.12,73.55c39.459,18.62,77.77,28.57,107.85,29.6c8.239,0.29,15.859-0.09,22.72-1.149   c18.3-2.83,31.15-10.45,35.82-22.95C405.589,308.753,398.35,289.053,381.699,268.553z"/>
@@ -15,17 +13,4 @@
 	</g>
 	<path fill="#AF7E36" d="M207.54,139.493l-25.83,14.9C189.709,148.382,198.379,143.382,207.54,139.493z"/>
 </g>
-<g id="Calque_2">
-</g>
-
-	<metadata>
-		<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
-			<rdf:Description about="https://iconscout.com/legal#licenses" dc:title="Saturn" dc:description="Saturn" dc:publisher="Iconscout" dc:date="2017-06-13" dc:format="image/svg+xml" dc:language="en">
-				<dc:creator>
-					<rdf:Bag>
-						<rdf:li>Iconika Store</rdf:li>
-					</rdf:Bag>
-				</dc:creator>
-			</rdf:Description>
-		</rdf:RDF>
-    </metadata></svg>
+</svg>

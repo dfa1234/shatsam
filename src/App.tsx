@@ -1,14 +1,16 @@
 import React from "react";
+import { IntlProvider } from "react-intl";
 import { Home } from "./components/Home";
-import logo from "./logo.svg";
+import { en } from "./i18n/en";
 
 export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Home />
-      </header>
-    </div>
+    <IntlProvider messages={en} locale="he" defaultLocale="en">
+      <div className="App">
+        <header className="App-header">
+          <Home />
+        </header>
+      </div>
+    </IntlProvider>
   );
 };
