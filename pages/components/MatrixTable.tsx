@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { format } from "date-fns";
+import Image from "next/image";
 import { useMemo } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { getMatrix } from "../utils/algo";
@@ -72,10 +73,11 @@ export const MatrixTable = () => {
                       id: CYCLE_KEY[step],
                     })}
                   >
-                    <img
-                      style={styles.planet}
+                    <Image
                       src={MAP_CYCLE_ICONS.get(step)}
                       alt={"plt" + period}
+                      width={styles.planet.width}
+                      height={styles.planet.width}
                     />
                   </Box>
                 </td>

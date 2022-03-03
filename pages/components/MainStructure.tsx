@@ -1,9 +1,11 @@
 import { useCallback, useState } from "react";
+import { IntlProvider } from "react-intl";
+import { en } from "../i18n/en";
 import { getNavigatorLocation } from "../utils/getNavigatorLocation";
 import { Clock } from "./Clock";
 import { MatrixTable } from "./MatrixTable";
 
-export const Home = () => {
+export const MainStructure = () => {
   const [sunTime, setSunTime] = useState();
   const clickLocation = useCallback(() => {
     getNavigatorLocation()
@@ -17,18 +19,20 @@ export const Home = () => {
 
   return (
     <>
-      <header>
-        <h1>Shatsam</h1>
-      </header>
+      <IntlProvider messages={en} locale="he" defaultLocale="en">
+        <header>
+          <h1>Shatsam</h1>
+        </header>
 
-      <main>
-        <Clock />
+        <main>
+          <Clock />
 
-        <button onClick={clickLocation}>Location</button>
-        {!!sunTime && <pre>{JSON.stringify(sunTime, null, 2)}</pre>}
+          <button onClick={clickLocation}>Location</button>
+          {!!sunTime && <pre>{JSON.stringify(sunTime, null, 2)}</pre>}
 
-        <MatrixTable />
-      </main>
+          <MatrixTable />
+        </main>
+      </IntlProvider>
     </>
   );
 };

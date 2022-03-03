@@ -7,13 +7,14 @@ import HCOffline from "highcharts/modules/offline-exporting";
 import HCSolidGauge from "highcharts/modules/solid-gauge";
 import React, { useEffect, useRef } from "react";
 import { easeOutBounce } from "../utils/animations/easeOutBounce";
-import "./chart.css";
 
-HCExportingInit(Highcharts);
-HCOffline(Highcharts);
-HCExportData(Highcharts);
-HCMore(Highcharts);
-HCSolidGauge(Highcharts);
+if (typeof Highcharts === "object") {
+  HCExportingInit(Highcharts);
+  HCOffline(Highcharts);
+  HCExportData(Highcharts);
+  HCMore(Highcharts);
+  HCSolidGauge(Highcharts);
+}
 
 const getNow = () => {
   var now = new Date();
