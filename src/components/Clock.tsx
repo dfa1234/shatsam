@@ -26,19 +26,18 @@ const getNow = () => {
   };
 };
 
-const pad = (n: number, length: number) =>
-  new Array((length || 2) + 1 - String(n).length).join("0") + n;
 
 var now = getNow();
 
 const options: Highcharts.Options = {
   chart: {
     type: "gauge",
-    plotBackgroundColor: undefined,
-    plotBackgroundImage: undefined,
+    plotBackgroundColor: 'transparent',
+    plotBackgroundImage: 'blue',
     plotBorderWidth: 0,
     plotShadow: false,
     height: 300,
+    backgroundColor:'transparent'
   },
 
   credits: {
@@ -70,6 +69,9 @@ const options: Highcharts.Options = {
     ],
   },
 
+  tooltip:{
+    formatter: ()=>null
+  },
   yAxis: {
     labels: {
       distance: -20,
@@ -102,14 +104,7 @@ const options: Highcharts.Options = {
       y: 10,
     },
   },
-
-  tooltip: {
-    formatter: function (): string {
-      //@ts-ignore
-      return this.series?.chart?.tooltipText as string;
-    },
-  },
-
+  
   series: [
     {
       type: "gauge",
@@ -150,54 +145,37 @@ const options: Highcharts.Options = {
   ],
 };
 
-const move = (chart: any) =>
-  setInterval(function () {
+const startMoving = (chart: any, millisecondInterval: number = 1000) =>
+  setInterval(() => {
     now = getNow();
 
-    if (chart.get) {
-      var hour = chart.get("hour");
-      var minute = chart.get("minute");
-      var second = chart.get("second");
-      // run animation unless we're wrapping around from 59 to 0
-      var animation =
-        now.seconds === 0
-          ? false
-          : {
-              easing: "easeOutBounce",
-            };
-
-      // Cache the tooltip text
-      chart.tooltipText =
-        pad(Math.floor(now.hours), 2) +
-        ":" +
-        pad(Math.floor(now.minutes * 5), 2) +
-        ":" +
-        pad(now.seconds * 5, 2);
-
-      hour.update(now.hours, true, animation);
-      minute.update(now.minutes, true, animation);
-      second.update(now.seconds, true, animation);
-      //console.debug(hour, minute, second);
-      console.debug();
-    } else {
-      console.debug("chart.get not available:", chart);
+    if (!chart.get) {
+      console.error("chart not available:", chart);
+      return;
     }
-  }, 1000);
+    
+    (Math as any).easeOutBounce = easeOutBounce;
+    const animation = { easing: "easeOutBounce" };
 
-(Math as any).easeOutBounce = easeOutBounce;
+    chart.get("hour").update(now.hours, true, animation);
+    chart.get("minute").update(now.minutes, true, animation);
+    chart.get("second").update(now.seconds, true, animation);
+    
+  }, millisecondInterval);
+
 
 export const Clock = (props: HighchartsReact.Props) => {
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
   useEffect(() => {
-    let inter: NodeJS.Timer;
+    let intervalTimer: NodeJS.Timer;
     if (chartComponentRef) {
-      inter = move(chartComponentRef.current?.chart);
+      intervalTimer = startMoving(chartComponentRef.current?.chart);
     }
 
     return () => {
-      if (inter) {
-        clearInterval(inter);
+      if (intervalTimer) {
+        clearInterval(intervalTimer);
       }
     };
   }, [chartComponentRef]);

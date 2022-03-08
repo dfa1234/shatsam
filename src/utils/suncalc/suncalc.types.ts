@@ -17,16 +17,19 @@ export interface GetSunTimesResult {
   sunset: Date;
   sunsetStart: Date;
 }
+
 export interface GetSunPositionResult {
   altitude: number;
   azimuth: number;
 }
+
 export interface GetMoonPositionResult {
   altitude: number;
   azimuth: number;
   distance: number;
   parallacticAngle: number;
 }
+
 export interface GetMoonIlluminationResult {
   fraction: number;
   phase: number;
